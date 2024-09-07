@@ -2,4 +2,4 @@
 ## This website is built using
 1) frontend : html, css, js
 2) backend : model wraped around a flask server                                                                                                                                                                 
-app.js makes http post request to backend flask server and retrieves the estimated price after feeding features to the model
+# app.js makes http post request to backend flask server and retrieves the estimated price after feeding features to the model
