@@ -6,8 +6,15 @@ tracemalloc.start()
 app = Flask(__name__)
 
 from flask_cors import CORS
-CORS(app)  # This will enable CORS for all routes
+CORS(app)  
 
+@app.route('/test_prediction')
+def test_prediction():
+    try:
+        result = util.get_estimated_price(2, 1200, 0.500000, 'Super Area', 'location_name', 'city_name', 'Semi-Furnished', 'Family', 2, 'Contact Owner')
+        return f"Test Prediction Result: {result}"
+    except Exception as e:
+        return f"Error: {e}"
 
 @app.route('/hello')
 def get_location_names():
@@ -24,7 +31,8 @@ def predict_home_price():
     try:
         no_of_bhk = float(request.form['bhk'])
         size = float(request.form['size'])
-        floor = float(request.form['floor'])
+        import numpy as np
+        floor = np.float64(request.form['floor'])
         area_type = request.form['area_type']
         area_location = request.form['area_location']
         city = request.form['city']
@@ -50,5 +58,4 @@ def predict_home_price():
 
 
 if __name__ == "__main__":
-    print("starting python flask server for home rent prediction...")
     app.run(debug=True)

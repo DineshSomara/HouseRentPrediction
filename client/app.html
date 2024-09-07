@@ -16,29 +16,45 @@
             <label for="size">Size (in sqft):</label>
             <input type="number" id="size" name="size" required>
 
-            <label for="floor">Floor:</label>
-            <input type="number" id="floor" name="floor" required>
+            <label for="floor-group">Floor:</label>
+            <div class="input-group" id="floor-group">
+                <input type="number" class="input-column" id="floor1" name="floor1" required>
+                <span class="out-of">out of</span>
+                <input type="number" class="input-column" id="floor2" name="floor2" required>
+            </div>
 
             <label for="area_type">Area Type:</label>
-            <input type="text" id="area_type" name="area_type" required>
+            <select id="area_type" name="area_type">
+                <option value=""></option>
+              </select>
 
             <label for="area_location">Area Location:</label>
-            <input type="text" id="area_location" name="area_location" required>
+            <select id="area_location" name="area_location" required>
+                <option value=""></option>
+            </select>
 
             <label for="city">City:</label>
-            <input type="text" id="city" name="city" required>
+            <select id="city" name="city">
+                <option value=""></option>
+              </select>
 
             <label for="furnishing_status">Furnishing Status:</label>
-            <input type="text" id="furnishing_status" name="furnishing_status" required>
+            <select id="furnishing_status" name="furnishing_status">
+                <option value=""></option>
+              </select>
 
             <label for="tenant_preferred">Tenant Preferred:</label>
-            <input type="text" id="tenant_preferred" name="tenant_preferred" required>
+            <select id="tenant_preferred" name="tenant_preferred">
+                <option value=""></option>
+              </select>
 
             <label for="bathroom">Number of Bathrooms:</label>
             <input type="number" id="bathroom" name="bathroom" required>
 
             <label for="point_of_contact">Point of Contact:</label>
-            <input type="text" id="point_of_contact" name="point_of_contact" required>
+            <select id="point_of_contact" name="point_of_contact">
+                <option value=""></option>
+              </select>
 
             <button type="submit">Predict Price</button>
         </form>

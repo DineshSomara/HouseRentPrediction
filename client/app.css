@@ -1,9 +1,24 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #322c978d;
     margin: 0;
     padding: 0;
 }
+
+.input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-column {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .out-of {
+    margin: 0 5px;
+  }
 
 .container {
     max-width: 600px;
@@ -26,21 +41,33 @@ form {
 
 label {
     margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
     color: #555;
 }
 
 input {
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
+    appearance: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+  
+    ::after {
+      content: "\25BC";
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+  }
 
 button {
     margin-top: 20px;
     padding: 10px;
-    background-color: #5cb85c;
+    background-color: #322c978d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -57,4 +84,38 @@ button:hover {
     text-align: center;
     font-size: 20px;
     color: #333;
+}
+
+#area_location {
+    appearance: none;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 15px 15px;
+  }
+
+#tenant_preferred,
+#point_of_contact,
+#area_type,
+#city ,
+#furnishing_status{
+  appearance: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+
+  ::after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
 }

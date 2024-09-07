@@ -19,7 +19,7 @@ def load_saved_artifacts():
     with open("./artifacts/columns.json") as f:
         __data_columns = json.load(f)['data_columns']
         __area_locality = __data_columns[10:]
-        print("Loaded columns:", __data_columns)
+        print("Loaded columns:")
 
     with open("./artifacts/home_rent_best_model_rfr.pkl", 'rb') as f:
         __model = pickle.load(f)
@@ -31,18 +31,19 @@ def load_saved_artifacts():
 def get_estimated_price(bhk, size, floor, area_type, area_location, city, furnishing_status, tenant_preferred,
                               bathroom,
                               point_of_contact):
+    print(f"Input values: bhk={bhk}, size={size}, floor={floor}, area_type={area_type}, area_location={area_location}, city={city}, furnishing_status={furnishing_status}, tenant_preferred={tenant_preferred}, bathroom={bathroom}, point_of_contact={point_of_contact}")
+
     global __data_columns
     global __area_locality
     global __model
     with open("./artifacts/columns.json") as f:
         __data_columns = json.load(f)['data_columns']
         __area_locality = __data_columns[10:]
-        print("Loaded columns:", __data_columns)
     with open("./artifacts/home_rent_best_model_rfr.pkl", 'rb') as f:
         __model = pickle.load(f)
         print("Model loaded:", __model)
     try:
-        loc_index = __data_columns.index(area_location.lower())
+        loc_index = __data_columns.index(area_location)
     except:
         loc_index = -1
 
@@ -83,6 +84,3 @@ def get_estimated_price(bhk, size, floor, area_type, area_location, city, furnis
 
     return __model.predict([X])[0]
 
-
-if __name__ == '__main__':
-    load_saved_artifacts()
